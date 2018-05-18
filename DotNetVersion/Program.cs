@@ -19,12 +19,8 @@ namespace DotNetVersion
             PrintLine();
 
             Console.ForegroundColor = ConsoleColor.White;
-
-            if (System.Diagnostics.Debugger.IsAttached)
-            {
-                Console.WriteLine("Press any key to exit...");
-                Console.ReadKey();
-            }
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
 
         }
 
