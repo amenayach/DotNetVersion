@@ -8,15 +8,31 @@ namespace DotNetVersion
     {
         static void Main(string[] args)
         {
+            PrintLine();
 
             DotNet.GetVersionFromRegistry();
 
-            Console.WriteLine("--------------------------------------------------");
+            PrintLine();
 
             DotNet.Get45PlusFromRegistry();
-            
-            Console.ReadKey();
 
+            PrintLine();
+
+            Console.ForegroundColor = ConsoleColor.White;
+
+            if (System.Diagnostics.Debugger.IsAttached)
+            {
+                Console.WriteLine("Press any key to exit...");
+                Console.ReadKey();
+            }
+
+        }
+
+        private static void PrintLine()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("--------------------------------------------------");
+            Console.ForegroundColor = ConsoleColor.Green;
         }
     }
 }
