@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DotNetVersion
 {
@@ -21,7 +19,6 @@ namespace DotNetVersion
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
-
         }
 
         private static void PrintLine()

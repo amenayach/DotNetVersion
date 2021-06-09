@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Microsoft.Win32;
 
 namespace DotNetVersion
@@ -22,7 +20,6 @@ namespace DotNetVersion
                 {
                     if (versionKeyName.StartsWith("v"))
                     {
-
                         RegistryKey versionKey = ndpKey.OpenSubKey(versionKeyName);
                         string name = (string)versionKey.GetValue("Version", "");
                         string sp = versionKey.GetValue("SP", "").ToString();
@@ -35,7 +32,6 @@ namespace DotNetVersion
                             {
                                 Console.WriteLine(versionKeyName + "  " + name + "  SP" + sp);
                             }
-
                         }
                         if (name != "")
                         {
@@ -86,8 +82,10 @@ namespace DotNetVersion
         // Checking the version using >= will enable forward compatibility.
         private static string CheckFor45PlusVersion(int releaseKey)
         {
+            if (releaseKey >= 528040)
+                return "4.8 or later";
             if (releaseKey >= 461808)
-                return "4.7.2 or later";
+                return "4.7.2";
             if (releaseKey >= 461308)
                 return "4.7.1";
             if (releaseKey >= 460798)
